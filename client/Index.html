@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="jquery-3.3.1.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="CSS/tabs.css">
+</head>
+<body>
+
+<h2>Tabs</h2>
+<p>Click on the buttons inside the tabbed menu:</p>
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'List')">London</button>
+  <button class="tablinks" onclick="openCity(event, 'Update')">Paris</button>
+  <button class="tablinks" onclick="openCity(event, 'Insert')">Tokyo</button>
+</div>
+
+<div id="List" class="tabcontent">
+  <h3>List</h3>
+  Flower: <input id = "flowerBox" type = "text" size "20"/>
+</div>
+
+<div id="Update" class="tabcontent">
+  <h3>Update</h3>
+  Flower2: <input id = "flowerBox2" type = "text" size "20"/>
+  <button id= "UpdateFlower">Update</button>
+</div>
+
+<div id="Insert" class="tabcontent">
+  <h3>Insert</h3>
+  Flower3: <input id = "flowerBox3" type = "text" size "20"/>
+  <button id="InsertNewSighting">Insert</button>
+</div>
+
+<script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
+
+
+<script type="text/javascript">
+  $(document).ready(() => {
+    $('#UpdateFlower').click(() => {
+      console.log('clicked');
+    });
+  });
+</script>
+
+</body>
+</html>

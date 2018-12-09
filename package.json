@@ -1,0 +1,24 @@
+{
+  "name": "dbassignment5",
+  "version": "1.0.0",
+  "description": "class assignment",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexLeoRodriguez/DBassignment5.git"
+  },
+  "author": "Alexander Rodriguez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexLeoRodriguez/DBassignment5/issues"
+  },
+  "homepage": "https://github.com/AlexLeoRodriguez/DBassignment5#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "jquery": "^3.3.1"
+  }
+}
