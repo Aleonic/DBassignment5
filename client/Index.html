@@ -1,62 +1,126 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <script src="jquery-3.3.1.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="CSS/tabs.css">
-</head>
-<body>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="CSS/tabs.css">
+  </head>
+  <body>
 
-<h2>Tabs</h2>
-<p>Click on the buttons inside the tabbed menu:</p>
+    <h2>Flowers</h2>
+      <p>Welcome to your best source to find flowers</p>
 
-<div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'List')">List</button>
-  <button class="tablinks" onclick="openCity(event, 'Update')">Update</button>
-  <button class="tablinks" onclick="openCity(event, 'Insert')">Insert</button>
-</div>
+      <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'List')">List</button>
+        <button class="tablinks" onclick="openCity(event, 'Update')">Update</button>
+        <button class="tablinks" onclick="openCity(event, 'Insert')">Insert</button>
+      </div>
 
-<div id="List" class="tabcontent">
-  <h3>List</h3>
-  Flower: <input id = "flowerBox" type = "text" size "20"/>
-</div>
+      <div id="List" class="tabcontent">
+        <h3>List</h3>
+        Flower Name: <input id ="flowerBox" type = "text" size "20"/>
+        <button id="chooseFlower">Update</button>
+        <div id="flowerTable"></div>
+      </div>
 
-<div id="Update" class="tabcontent">
-  <h3>Update</h3>
-  Flower2: <input id = "flowerBox2" type = "text" size "20"/>
-  <button id= "UpdateFlower">Update</button>
-</div>
+      <div id="Update" class="tabcontent">
+        <h3>Update</h3>
+          Comname:  <input id ="FComname" type = "text" size "20"/> <br>
+          Genus:    <input id ="FGenus" type = "text" size "20"/> <br>
+          Species:  <input id ="FSpecies" type = "text" size "20"/> <br>
+          <button id="UpdateFlower">Update</button>
+      </div>
 
-<div id="Insert" class="tabcontent">
-  <h3>Insert</h3>
-  Flower3: <input id = "flowerBox3" type = "text" size "20"/>
-  <button id="InsertNewSighting">Insert</button>
-</div>
+      <div id="Insert" class="tabcontent">
+        <h3>Insert</h3>
+          Name:    <input id ="Sname" type = "text" size "20"/> <br>
+          Person:  <input id ="SPerson" type = "text" size "20"/> <br>
+          Location:<input id ="SLocation" type = "text" size "20"/> <br>
+          Sighted: <input id ="SSighted" type = "text" size "20"/> <br>
+          <button id="InsertNewSighting">Insert</button>
+      </div>
 
-<script>
-function openCity(evt, cityName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
+      <div id="status"></div>
+
+    <script>
+    function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
     }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
-</script>
+    </script>
 
+    <script type="text/javascript">
 
-<script type="text/javascript">
-  $(document).ready(() => {
-    $('#UpdateFlower').click(() => {
-      console.log('clicked');
-    });
-  });
-</script>
+      $(document).ready(() => {
 
-</body>
+        $.ajax({
+          url: 'flowers',
+          type: 'GET',
+          dataType: 'json',
+          success: (data) => {
+            $('#status').html('Flower objects collected');
+            //https://www.htmlgoodies.com/beyond/css/working_w_tables_using_jquery.html
+            let table = $("<table/>").addClass('TableGenerator');
+            $.each(data, function(rowIndex, r) {
+                let row = $("<tr/>").addClass('GeneratorRow');
+                $.each(r, function(colIndex, c) {
+                    row.append($("<td/>").addClass('GeneratorCol').text(c));
+                });
+                table.append(row);
+            });
+            $('#flowerTable').append(table);
+          }
+        });
+
+        $('#').click(() => {
+          $.ajax({
+
+        $('#InsertNewSighting').click(() => {
+          $.ajax({
+            url: 'sightings',
+            type: 'POST',
+            data: {
+              Name: $('Sname').val(),
+              Person: $('SPerson').val(),
+              Location: $('SLocation').val(),
+              Sighted: $('SSighted').val()
+            },
+            success: (data) => {
+              $('#status').html(data.message);
+            }
+          });
+        });
+
+        $('#UpdateFlower').click(() => {
+          $.ajax({
+            url: 'updateF',
+            type: 'POST',
+            data: {
+              Comname: $('FComname').val(),
+              Genus: $('FGenus').val(),
+              Species: $('FSpecies').val()
+            },
+            success: (data) => {
+              $('#status').html(data.message);
+            }
+          });
+        });
+
+        $(document).ajaxError(() => {
+          $('#status').html('Error: unknown ajaxError!');
+        });
+
+      });
+    </script>
+
+    </body>
 </html>

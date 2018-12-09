@@ -19,6 +19,7 @@
   "homepage": "https://github.com/AlexLeoRodriguez/DBassignment5#readme",
   "dependencies": {
     "express": "^4.16.4",
-    "jquery": "^3.3.1"
+    "jquery": "^3.3.1",
+    "sqlite3": "^4.0.4"
   }
 }
