@@ -18,8 +18,11 @@
 
       <div id="List" class="tabcontent">
         <h3>List</h3>
-        Flower Name: <input id ="flowerBox" type = "text" size "20"/>
-        <button id="chooseFlower">Update</button>
+        <div id="mainFlower">
+          Flower Name: <input id ="flowerBox" type = "text" size "20"/>
+          <button id="chooseFlower">Search</button>
+        </div>
+        <button id="returnButton">Return</button>
         <div id="flowerTable"></div>
       </div>
 
@@ -61,6 +64,7 @@
     <script type="text/javascript">
 
       $(document).ready(() => {
+        $('#returnButton').hide();
 
         $.ajax({
           url: 'flowers',
@@ -81,8 +85,54 @@
           }
         });
 
-        $('#').click(() => {
+        $('#returnButton').click(() => {
           $.ajax({
+            url: 'flowers',
+            type: 'GET',
+            dataType: 'json',
+            success: (data) => {
+              $('#status').html('Flower objects collected');
+              //https://www.htmlgoodies.com/beyond/css/working_w_tables_using_jquery.html
+              let table = $("<table/>").addClass('TableGenerator');
+              $.each(data, function(rowIndex, r) {
+                  let row = $("<tr/>").addClass('GeneratorRow');
+                  $.each(r, function(colIndex, c) {
+                      row.append($("<td/>").addClass('GeneratorCol').text(c));
+                  });
+                  table.append(row);
+              });
+              $('#flowerTable').html(table);
+              $('#mainFlower').show();
+              $('#returnButton').hide();
+            }
+          });
+        });
+
+        $('#chooseFlower').click(() => {
+          const requestURL = 'flowerSightings/' + $('#flowerBox').val();
+          console.log('making ajax request to: ', requestURL);
+          $.ajax({
+            url: requestURL,
+            type: 'GET',
+            dataType: 'json',
+            success: (data) => {
+              $('#status').html('Flower chosen');
+              //https://www.htmlgoodies.com/beyond/css/working_w_tables_using_jquery.html
+              var table = $("<table/>").addClass('TableGenerator');
+              $.each(data, function(rowIndex, r) {
+                  let row = $("<tr/>").addClass('GeneratorRow');
+                  $.each(r, function(colIndex, c) {
+                      row.append($("<td/>").addClass('GeneratorCol').text(c));
+                  });
+                  table.append(row);
+              });
+              $('#flowerTable').html(table);
+              $('#mainFlower').hide();
+              $('#returnButton').show();
+
+            }
+          });
+        });
 
         $('#InsertNewSighting').click(() => {
           $.ajax({

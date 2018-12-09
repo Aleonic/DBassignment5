@@ -16,7 +16,8 @@ app.get('/flowers', (req, res) => {
 });
 
 app.get('/flowerSightings/:nameValue', (req, res) => {
-  const nameSearch = req.param.nameValue;
+  const nameSearch = req.params.nameValue;
+  console.log('this is a test', nameSearch);
   db.all('SELECT * FROM Sightings WHERE name = $Name ORDER BY sighted LIMIT 10;',
   {
     $Name: nameSearch
@@ -24,7 +25,7 @@ app.get('/flowerSightings/:nameValue', (req, res) => {
    (err, rows) => {
      console.log(rows);
       if (rows.length > 0) {
-        res.send(rows[0]);
+        res.send(rows);
       } else {
         res.send({}); // failed, so return an empty object instead of undefined
       }
