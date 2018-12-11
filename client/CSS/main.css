@@ -6,78 +6,90 @@ body {
 #flowersHeader {
   text-align: center;
   margin: 1em 0 0.5em 0;
-	font-weight: 100;
-	text-transform: uppercase;
-	color: #00caa6;
-	font-style: italic;
-	font-family: 'Josefin Sans', sans-serif;
-	font-size: 58px;
-	line-height: 54px;
-	text-shadow: 2px 5px 0 rgba(0,0,0,0.2);
+  font-weight: 100;
+  text-transform: uppercase;
+  color: #00caa6;
+  font-style: italic;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 58px;
+  line-height: 54px;
+  text-shadow: 2px 5px 0 rgba(0,0,0,0.2);
 }
 
 #welcome {
   text-align: center;
   margin: 1em 0 0.5em 0;
-	color: #148773;
-	font-size: 26px;
-	line-height: 40px;
-	font-weight: bold;
-	font-family: 'Josefin Sans', sans-serif;
+  color: #148773;
+  font-size: 26px;
+  line-height: 40px;
+  font-weight: bold;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 #group {
   text-align: center;
   margin: 1em 0 0.5em 0;
-	color: #343434;
-	font-size: 22px;
-	line-height: 40px;
-	font-weight: 100;
-	text-transform: uppercase;
-	font-family: 'Josefin Sans', sans-serif;
-	letter-spacing: 1px;
-	font-style: italic;
+  color: #343434;
+  font-size: 22px;
+  line-height: 40px;
+  font-weight: 100;
+  text-transform: uppercase;
+  font-family: 'Josefin Sans', sans-serif;
+  letter-spacing: 1px;
+  font-style: italic;
 }
 
 h3 {
   margin: 1em 0 0.5em 0;
-	color: #343434;
-	font-size: 22px;
-	line-height: 40px;
-	font-weight: 100;
-	text-transform: uppercase;
-	font-family: 'Josefin Sans', sans-serif;
-	letter-spacing: 1px;
-	font-style: italic;
+  color: #343434;
+  font-size: 22px;
+  line-height: 40px;
+  font-weight: 100;
+  text-transform: uppercase;
+  font-family: 'Josefin Sans', sans-serif;
+  letter-spacing: 1px;
+  font-style: italic;
 }
 
 button:hover{
   background-color: lightgreen;
   color: white;
 }
+
 #mainFlower, #Update, #Insert {
   color: #343434;
-	font-size: 16px;
-	line-height: 40px;
-	font-weight: 100;
+  font-size: 16px;
+  line-height: 40px;
+  font-weight: 100;
   text-transform: uppercase;
-	font-family: 'Josefin Sans', sans-serif;
-	letter-spacing: 1px;
-	font-style: normal;
+  font-family: 'Josefin Sans', sans-serif;
+  letter-spacing: 1px;
+  font-style: normal;
 }
 
 .GeneratorCol {
-	color: #343434;
-	font-size: 16px;
-	line-height: 40px;
-	font-weight: 100;
+  color: #343434;
+  font-size: 16px;
+  line-height: 40px;
+  font-weight: 100;
   text-transform: inherit;
-	font-family: 'Josefin Sans', sans-serif;
-	letter-spacing: 1px;
-	font-style: normal;
+  font-family: 'Josefin Sans', sans-serif;
+  letter-spacing: 1px;
+  font-style: normal;
 }
 
 .TableGenerator, tr, td{
   border-collapse: collapse;
   border: 1px solid black;
+}
+
+.input_check{
+  color: #343434;
+  font-size: 16px;
+  line-height: 40px;
+  font-weight: 100;
+  text-transform: uppercase;
+  font-family: 'Josefin Sans', sans-serif;
+  letter-spacing: 1px;
+  font-style: normal;
 }
