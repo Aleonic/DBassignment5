@@ -44,9 +44,9 @@ app.post('/updateF', (req, res) => {
     // callback function to run when the query finishes:
     (err) => {
       if (err) {
-        res.send({message: 'error in app.post(/users)'});
+        res.send({message: 'error in app.post(/updateF)'});
       } else {
-        res.send({message: 'successfully run app.post(/users)'});
+        res.send({message: 'successfully run app.post(/updateF)'});
       }
     }
   );
@@ -65,9 +65,9 @@ app.post('/sightings', (req, res) => {
     // callback function to run when the query finishes:
     (err) => {
       if (err) {
-        res.send({message: 'error in app.post(/users)'});
+        res.send({message: 'error in app.post(/sightings)'});
       } else {
-        res.send({message: 'successfully run app.post(/users)'});
+        res.send({message: 'successfully run app.post(/sightings)'});
       }
     }
   );
