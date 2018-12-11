@@ -55,14 +55,29 @@ button:hover{
   background-color: lightgreen;
   color: white;
 }
+#mainFlower, #Update, #Insert {
+  color: #343434;
+	font-size: 16px;
+	line-height: 40px;
+	font-weight: 100;
+  text-transform: uppercase;
+	font-family: 'Josefin Sans', sans-serif;
+	letter-spacing: 1px;
+	font-style: normal;
+}
 
-div{
+.GeneratorCol {
 	color: #343434;
 	font-size: 16px;
 	line-height: 40px;
 	font-weight: 100;
-	text-transform: uppercase;
+  text-transform: inherit;
 	font-family: 'Josefin Sans', sans-serif;
 	letter-spacing: 1px;
 	font-style: normal;
+}
+
+.TableGenerator, tr, td{
+  border-collapse: collapse;
+  border: 1px solid black;
 }
