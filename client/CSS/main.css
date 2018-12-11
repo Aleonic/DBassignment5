@@ -1,0 +1,68 @@
+body {
+  font-family: Arial;
+  background-color: #E6E6FA;
+}
+
+#flowersHeader {
+  text-align: center;
+  margin: 1em 0 0.5em 0;
+	font-weight: 100;
+	text-transform: uppercase;
+	color: #00caa6;
+	font-style: italic;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 58px;
+	line-height: 54px;
+	text-shadow: 2px 5px 0 rgba(0,0,0,0.2);
+}
+
+#welcome {
+  text-align: center;
+  margin: 1em 0 0.5em 0;
+	color: #148773;
+	font-size: 26px;
+	line-height: 40px;
+	font-weight: bold;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+#group {
+  text-align: center;
+  margin: 1em 0 0.5em 0;
+	color: #343434;
+	font-size: 22px;
+	line-height: 40px;
+	font-weight: 100;
+	text-transform: uppercase;
+	font-family: 'Josefin Sans', sans-serif;
+	letter-spacing: 1px;
+	font-style: italic;
+}
+
+h3 {
+  margin: 1em 0 0.5em 0;
+	color: #343434;
+	font-size: 22px;
+	line-height: 40px;
+	font-weight: 100;
+	text-transform: uppercase;
+	font-family: 'Josefin Sans', sans-serif;
+	letter-spacing: 1px;
+	font-style: italic;
+}
+
+button:hover{
+  background-color: lightgreen;
+  color: white;
+}
+
+div{
+	color: #343434;
+	font-size: 16px;
+	line-height: 40px;
+	font-weight: 100;
+	text-transform: uppercase;
+	font-family: 'Josefin Sans', sans-serif;
+	letter-spacing: 1px;
+	font-style: normal;
+}
