@@ -1,4 +1,54 @@
-body {font-family: Arial;}
+body {
+  font-family: Arial;
+}
+
+h2 {
+  text-align: center;
+  margin: 1em 0 0.5em 0;
+	font-weight: 100;
+	text-transform: uppercase;
+	color: #00caa6;
+	font-style: italic;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 58px;
+	line-height: 54px;
+	text-shadow: 2px 5px 0 rgba(0,0,0,0.2);
+}
+
+p {
+  text-align: center;
+  margin: 1em 0 0.5em 0;
+	color: #148773;
+	font-size: 26px;
+	line-height: 40px;
+	font-weight: bold;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+h4 {
+  text-align: center;
+  margin: 1em 0 0.5em 0;
+	color: #343434;
+	font-size: 22px;
+	line-height: 40px;
+	font-weight: 100;
+	text-transform: uppercase;
+	font-family: 'Josefin Sans', sans-serif;
+	letter-spacing: 1px;
+	font-style: italic;
+}
+
+h3 {
+  margin: 1em 0 0.5em 0;
+	color: #343434;
+	font-size: 22px;
+	line-height: 40px;
+	font-weight: 100;
+	text-transform: uppercase;
+	font-family: 'Josefin Sans', sans-serif;
+	letter-spacing: 1px;
+	font-style: italic;
+}
 
 /* Style the tab */
 .tab {
@@ -21,12 +71,20 @@ body {font-family: Arial;}
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-    background-color: #ddd;
+    background-color: #bbb;
 }
 
 /* Create an active/current tablink class */
 .tab button.active {
-    background-color: #ccc;
+  float: left;
+  width: 20%;
+  padding: 14px 16px;
+  background: #ccc;
+  color: black;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
 }
 
 /* Style the tab content */
@@ -35,4 +93,20 @@ body {font-family: Arial;}
     padding: 6px 12px;
     border: 1px solid #ccc;
     border-top: none;
+}
+
+button:hover{
+  background-color: lightgreen;
+  color: white;
+}
+
+div{
+	color: #343434;
+	font-size: 16px;
+	line-height: 40px;
+	font-weight: 100;
+	text-transform: uppercase;
+	font-family: 'Josefin Sans', sans-serif;
+	letter-spacing: 1px;
+	font-style: normal;
 }
