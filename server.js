@@ -10,15 +10,15 @@ app.use(express.static('client'));
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.get('/flowers', (req, res) => {
-  db.all('SELECT COMNAME FROM FLOWERS', (err, rows) => {
+  db.all('SELECT COMNAME, GENUS, SPECIES FROM FLOWERS', (err, rows) => {
     res.send(rows);
   });
 });
 
 app.get('/flowerSightings/:nameValue', (req, res) => {
   const nameSearch = req.params.nameValue;
-  console.log('this is a test', nameSearch);
-  db.all('SELECT * FROM Sightings WHERE name = $Name ORDER BY sighted LIMIT 10;',
+  console.log('The name chosen was: ', nameSearch);
+  db.all('SELECT PERSON, LOCATION, SIGHTED FROM Sightings WHERE name = $Name ORDER BY sighted LIMIT 10;',
   {
     $Name: nameSearch
   },
@@ -46,7 +46,7 @@ app.post('/updateF', (req, res) => {
       if (err) {
         res.send({message: 'error in app.post(/updateF)'});
       } else {
-        res.send({message: 'successfully run app.post(/updateF)'});
+        res.send({message: 'Successfully updated flowers if Comname exists.'});
       }
     }
   );
@@ -67,7 +67,7 @@ app.post('/sightings', (req, res) => {
       if (err) {
         res.send({message: 'error in app.post(/sightings)'});
       } else {
-        res.send({message: 'successfully run app.post(/sightings)'});
+        res.send({message: 'Successfully inserted into sightings.'});
       }
     }
   );
